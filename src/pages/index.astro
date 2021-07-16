@@ -1,18 +1,18 @@
 ---    
 import Socials from '../components/socials.astro';
 
-import planet from '../assets/planet.webp';
+import planet from '/planet.webp';
 ---
 <style>
     @font-face {
         font-family: 'Bungee';
-        src: url('../assets/fonts/Bungee-Regular.ttf') format('truetype'),
-             url('../assets/fonts/Bungee-Regular.woff2') format('woff2');
+        src: url('/fonts/Bungee-Regular.ttf') format('truetype'),
+             url('/fonts/Bungee-Regular.woff2') format('woff2');
     }
 
     @font-face {
         font-family: 'BungeeHairline';
-        src: url('../assets/fonts/BungeeHairline-Regular.ttf') format('truetype');
+        src: url('/fonts/BungeeHairline-Regular.ttf') format('truetype');
     }
 
     body {
@@ -83,7 +83,16 @@ import planet from '../assets/planet.webp';
     }
 
 </style>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ben!</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
   <body>
     <div class="container">
         <div class="landing">
