@@ -1,0 +1,99 @@
+---    
+import Socials from '../components/socials.astro';
+
+import planet from '../assets/planet.webp';
+---
+<style>
+    @font-face {
+        font-family: 'Bungee';
+        src: url('../assets/fonts/Bungee-Regular.ttf') format('truetype'),
+             url('../assets/fonts/Bungee-Regular.woff2') format('woff2');
+    }
+
+    @font-face {
+        font-family: 'BungeeHairline';
+        src: url('../assets/fonts/BungeeHairline-Regular.ttf') format('truetype');
+    }
+
+    body {
+        background-color: #2B2A33;
+        font-family: 'Bungee';
+        margin: 0;
+    }
+
+    .landing {
+        padding-top: 100pt;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap-reverse;
+    }
+
+    .image {
+        height: 100%;
+        vertical-align: middle;
+        width: 256pt;
+        height: 256pt;
+    }
+
+    .link {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        text-decoration: none;
+        color: black;
+    }
+
+    .content {
+        font-size: 192px;
+        font-size: 4em;
+        font-weight: 700;
+        color: rgb(120, 67, 230);
+        text-transform: capitalize;
+        text-align: right;
+    }
+
+    .name-header {
+        color: #7112D2;
+        letter-spacing: 12px;
+    }
+
+   
+
+    @media screen and (max-width: 1000px) {
+        .landing {
+            padding-top: 20pt;
+        }
+        .image {
+            margin: auto;
+        }
+        .content {
+            text-align: center;
+            margin-left: 0;
+            font-size: 3em;
+            word-wrap: break-word;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .content {
+            text-align: right;
+            font-size: 2.5em;
+        }
+    }
+
+</style>
+<html>
+  <body>
+    <div class="container">
+        <div class="landing">
+            <div class="content">
+                <h2 class="name-header">I Build <br />Software</h2>
+            </div>
+            <img class="image" src={planet} alt="Profile GIF" />
+        </div>
+        <Socials />
+    </div>
+  </body>
+</html>
+
