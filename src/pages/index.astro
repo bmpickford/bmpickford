@@ -1,104 +1,53 @@
 ---    
-import Socials from '../components/socials.astro';
-
-import planet from '/planet.webp';
+import BlogLayout from '../layouts/BlogLayout.astro';
 ---
 <style>
-    @font-face {
-        font-family: 'Bungee';
-        font-display: swap;
-        src: url('/fonts/Bungee-Regular.ttf') format('truetype'),
-             url('/fonts/Bungee-Regular.woff2') format('woff2');
-    }
-
     body {
-        background-color: #2B2A33;
-        font-family: 'Bungee';
-        margin: 0;
+        overflow: hidden;
     }
-
-    .landing {
-        padding-top: 100pt;
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap-reverse;
-    }
-
-    .image {
-        height: 100%;
-        vertical-align: middle;
-        width: 256pt;
-        height: 256pt;
-    }
-
-    .link {
+    .name-wrapper {
         position: absolute;
-        bottom: 5px;
-        right: 5px;
-        text-decoration: none;
-        color: black;
+        top: 50px;
+        right: 120px;
+    }
+    .name {
+        color: white;
+        font-size: 4em;;
+        letter-spacing: 10px;
+    }
+    .sub {
+        color: white;
+        font-family: BungeeHairline;
+        font-size: 1.4em;
+        font-weight: 600;
+    }
+    .hero {
+        width: min-content;
+        margin-top: 50vh;
+        margin-left: 15vw;
+        animation: 4s ease-out 0s 1 slidein;
     }
 
-    .content {
-        font-size: 192px;
-        font-size: 4em;
-        font-weight: 700;
-        color: rgb(120, 67, 230);
-        text-transform: capitalize;
-        text-align: right;
+    @keyframes slidein { 
+        0% { transform: translateX(-100%) translateY(200%); }
+        100% { transform: translateX(0) translateY(0); }
     }
 
-    .name-header {
-        color: #7112D2;
-        letter-spacing: 12px;
-    }
-
-   
-
-    @media screen and (max-width: 1000px) {
-        .landing {
-            padding-top: 20pt;
-        }
-        .image {
-            margin: auto;
-        }
-        .content {
-            text-align: center;
-            margin-left: 0;
-            font-size: 3em;
-            word-wrap: break-word;
-            width: 100%;
-        }
-    }
-
-    @media screen and (max-width: 600px) {
-        .content {
-            text-align: right;
-            font-size: 2.5em;
+    @media (max-width: 450px) {
+        .hero {
+            margin-left: 10vw;
         }
     }
 
 </style>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ben!</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-</head>
-  <body>
-    <div class="container">
-        <div class="landing">
-            <div class="content">
-                <h2 class="name-header">I Build <br />Software</h2>
-            </div>
-            <img class="image" src={planet} alt="Profile GIF" />
-        </div>
-        <Socials />
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<BlogLayout>
+    <div class="name-wrapper">
+        <div class="name">Ben</div>
+        <div class="sub">I Like to build software</div>
     </div>
-  </body>
-</html>
+    <div class="hero">
+        <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_fdrrfiqz.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+    </div>
+</BlogLayout>
 
