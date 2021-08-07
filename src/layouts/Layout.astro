@@ -11,19 +11,8 @@ const contact = `<svg  style="height: 100%" xmlns="http://www.w3.org/2000/svg" v
             --dark1: #2B2A33;
             --dark2: #121617;
         }
-        @font-face {
-            font-family: 'Bungee';
-            font-display: swap;
-            src: url('/fonts/Bungee-Regular.ttf') format('truetype'),
-                url('/fonts/Bungee-Regular.woff2') format('woff2');
-        }
-        @font-face {
-            font-family: 'BungeeHairline';
-            font-display: swap;
-            src: url('/fonts/BungeeHairline-Regular.ttf') format('truetype');
-        }
         body {
-            font-family: 'Bungee';
+            font-family: monospace;
             margin: 0;
         }
         .item {
@@ -35,18 +24,19 @@ const contact = `<svg  style="height: 100%" xmlns="http://www.w3.org/2000/svg" v
         main {
             background-color: #121212;
             width: 100vw;
+            min-height: 100vh;
         }
         .sidebar {
             width: 100px;
-            height: 100vh;
             background-color: #2B2A33;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            z-index: 100;
         }
         .sidebar section {
             padding: 0 22px;
-            margin-bottom: 64px;
+            margin-bottom: 48px;
         }
         .nav {
             display: flex;
@@ -60,12 +50,16 @@ const contact = `<svg  style="height: 100%" xmlns="http://www.w3.org/2000/svg" v
         }
         .nav .item-label {
             color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             position: fixed;
             transform: scale(0) translateX(0);
             transition: transform .3s ease-out;
             opacity: .8;
             left: 86px;
-            margin-top: 16px;
+            margin-top: 14px;
         }
 
         @media (max-width: 480px) {
@@ -77,6 +71,7 @@ const contact = `<svg  style="height: 100%" xmlns="http://www.w3.org/2000/svg" v
     <title>Ben Pickford</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Personal site for Ben Pickford">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
