@@ -1,5 +1,5 @@
 ---    
-import BlogLayout from '../layouts/BlogLayout.astro';
+import Layout from '../layouts/Layout.astro';
 ---
 <style>
     body {
@@ -24,7 +24,7 @@ import BlogLayout from '../layouts/BlogLayout.astro';
     .hero {
         width: min-content;
         margin-top: 50vh;
-        margin-left: 15vw;
+        margin-left: 18vw;
         animation: 4s ease-out 0s 1 slidein;
     }
 
@@ -40,8 +40,8 @@ import BlogLayout from '../layouts/BlogLayout.astro';
     }
 
 </style>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-<BlogLayout>
+<script defer src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<Layout>
     <div class="name-wrapper">
         <div class="name">Ben</div>
         <div class="sub">I Like to build software</div>
@@ -49,5 +49,5 @@ import BlogLayout from '../layouts/BlogLayout.astro';
     <div class="hero">
         <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_fdrrfiqz.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
     </div>
-</BlogLayout>
+</Layout>
 
