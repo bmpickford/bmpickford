@@ -1,0 +1,72 @@
+---
+export interface Props {
+  post: any;
+}
+
+const { post } = Astro.props;
+---
+<article class="post-preview">
+  <header>
+    <h3 class="publish-date">{post.publishDate}</h3>
+    <a class="highlight-anchor" href={post.url}>
+      <h1 class="title">{post.title}</h1></a>
+      {post.tags &&
+        <div class="tags">
+          {post.tags.map((p, i) => {
+            let colour = 'purple';
+            if (i % 3 === 1) colour = 'blue'; 
+            else if (i % 3 === 2) colour = 'green'; 
+            return <span class={`tag tag-${colour}`}>{p}</span>
+          })}
+        </div>
+      }
+  </header>
+  <div>
+    <p>{post.description}</p>
+    <a href={post.url}>Read more</a>
+  </div>
+</article>
+<style>
+.post-preview {
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 4px solid var(--theme-divider);
+}
+
+.title,
+.author,
+.publish-date {
+  margin: 0;
+}
+
+.publish-date,
+.author {
+  font-size: 1.25rem;
+  color: var(--theme-text-lighter);
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--theme-text);
+}
+.tags {
+  margin-top: 12px;
+}
+.tag {
+  font-size: 0.75em;
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin-right: 8px;
+  opacity: 0.9;
+}
+.tag-purple {
+  background-color: var(--tag-purple);
+}
+.tag-blue {
+  background-color: var(--tag-blue);
+}
+.tag-green {
+  background-color: var(--tag-green);
+}
+</style>

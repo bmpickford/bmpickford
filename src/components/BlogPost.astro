@@ -1,0 +1,91 @@
+---
+import Author from './Author.astro';
+
+export interface Props {
+  title: string;
+  author: string;
+  publishDate: string;
+  heroImage: string;
+  alt: string;
+}
+
+const { title, author, publishDate, heroImage, alt } = Astro.props;
+---
+
+<div class="layout">
+  <article class="content">
+  <div>
+    <header>
+      {heroImage && <img class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
+      <p class="publish-date">{publishDate}</p>
+      <h1 class="title">{title}</h1>
+      <Author name={author} href="https://github.com/bmpickford" />
+    </header>
+    <main>
+      <div><slot /></div>
+    </main>
+  </article>
+</div>
+
+<style>
+main {
+  display: grid;
+  grid-template-columns: minmax(0.1rem, 1fr) minmax(0, 1000px) minmax(0.1rem, 1fr);
+  gap: 1em;
+}
+main > div {
+  grid-column: 2;
+}
+.hero-image {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  max-width: 1280px;
+}
+
+@media (max-width: 50em) {
+  .hero-image {
+    height: 260px;
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+.content {
+  margin-bottom: 8rem;
+}
+
+.content :global(main > * + *) {
+  margin-top: 1rem;
+}
+
+.content :global(h2) {
+  margin-top: 4rem;
+}
+header {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 4px solid var(--theme-divider);
+}
+header img {
+  max-width: 100vw;
+  max-height: 16vh;
+}
+.title,
+.author,
+.publish-date {
+  margin: auto;
+}
+
+.publish-date,
+.author {
+  color: var(--theme-text-lighter);
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+</style>

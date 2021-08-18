@@ -1,15 +1,34 @@
 ---    
 import Layout from '../layouts/Layout.astro';
+
 const showcaseRepos = [
     "cem-plugin-docsify",
     "web-vitals-wc"
 ];
+
 ---
+<Layout>
+<div class="container">
+    <div class="name-wrapper">
+        <div class="name">Ben</div>
+        <div class="sub">I Like to build software</div>
+    </div>
+    <div class="showcase">
+        <div class="label">Some things I'm working on</div>
+        <div class="repos">
+            {showcaseRepos.map((item) => (
+                <a href={`https://github.com/bmpickford/${item}`} target="__blank">
+                    <img src={`https://github-readme-stats.vercel.app/api/pin/?theme=midnight-purple&username=bmpickford&repo=${item}`} alt="github repo card" />
+                </a>
+            ))}
+        </div>
+    </div>
+    </div>
+</Layout>
 <style>
     .name-wrapper {
-        position: absolute;
-        top: 50px;
-        right: 120px;
+      text-align: right;
+      margin-right: 24px;
     }
     .name {
         color: white;
@@ -18,6 +37,7 @@ const showcaseRepos = [
         font-family: monospace;
         text-transform: uppercase;
         font-weight: 600;
+        margin-right: -16px;
     }
     .sub {
         color: white;
@@ -34,45 +54,34 @@ const showcaseRepos = [
         margin-bottom: 10px;
     }
     .showcase {
-        margin-left: 12px;
-        text-align: left;
-        margin-top: calc(100vh - 250px);
+        text-align: right;
+        margin-right: 24px;
     }
     .showcase img {
-        margin-right: 24px;
+        margin-left: 24px;
     }
     .repos { 
         display: flex;
-        justify-content: left;
+        justify-content: flex-end;
         flex-wrap: wrap;
     }
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+    }
     @media (max-width: 480px) {
-        .showcase img {
-            margin-right: unset;
-        }
-        .name-wrapper {
-            left: 12px;
-            right: unset;
-        }
-        .showcase img {
-            width: 350px;
-        }
+      .showcase img {
+          margin-right: unset;
+          width: 350px;
+      }
+      .name-wrapper {
+          left: 12px;
+          right: unset;
+      }
+      .repos {
+        justify-content: center;
+      }
     }
 </style>
-<Layout>
-    <div class="name-wrapper">
-        <div class="name">Ben</div>
-        <div class="sub">I Like to build software</div>
-    </div>
-    <div class="showcase">
-        <div class="label">Some things I'm working on</div>
-        <div class="repos">
-            {showcaseRepos.map((item) => (
-                <a href={`https://github.com/bmpickford/${item}`} target="__blank">
-                    <img src={`https://github-readme-stats.vercel.app/api/pin/?theme=midnight-purple&username=bmpickford&repo=${item}`} alt="github repo card" />
-                </a>
-            ))}
-        </div>
-    </div>
-</Layout>
-
