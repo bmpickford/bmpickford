@@ -27,7 +27,8 @@ tags: ['web-components', 'web-vitals']
 ## App
 The application is pretty simple, and aims to provide a non intrusive way to close the feedback loop if you're looking at measuring your web vitals in realtime
 
-#### Tech
+
+### Tech
 [Lit](https://lit.dev/) generated using the [open-wc](https://open-wc.org/docs/development/generator/) generator
 
 

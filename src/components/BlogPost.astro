@@ -14,7 +14,6 @@ const { title, author, publishDate, heroImage, alt } = Astro.props;
 
 <div class="layout">
   <article class="content">
-  <div>
     <header>
       {heroImage && <img class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
       <p class="publish-date">{publishDate}</p>
@@ -35,6 +34,8 @@ main {
 }
 main > div {
   grid-column: 2;
+  /* letter-spacing: 2px; */
+  line-height: 42px;
 }
 .hero-image {
   margin-top: 2rem;
