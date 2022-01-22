@@ -3,13 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "start": "astro dev",
-    "build": "astro build"
+    "build": "astro build",
+    "format": "prettier ./src -w"
   },
   "keywords": [],
   "author": "Benjamin Pickford",
   "license": "ISC",
   "devDependencies": {
-    "astro": "^0.20.6"
+    "astro": "^0.22.17",
+    "prettier": "^2.5.1",
+    "prettier-plugin-astro": "^0.0.11"
   },
   "snowpack": {
     "workspaceRoot": "."

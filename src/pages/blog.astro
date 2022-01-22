@@ -1,33 +1,39 @@
 ---
-import BlogPostPreview from '../components/BlogPostPreview.astro';
-import Layout from '../layouts/Layout.astro';
+import BlogPostPreview from "../components/BlogPostPreview.astro";
+import Layout from "../layouts/Layout.astro";
 
-let allPosts = Astro.fetchContent('./posts/*.md');
+let allPosts = Astro.fetchContent("./posts/*.md");
 // @ts-ignore
-allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-
+allPosts = allPosts.sort(
+  (a, b) => new Date(b.publishDate) - new Date(a.publishDate)
+);
 ---
-<style>
-    .blog-layout {
-        margin-top: 24px;
-        display: grid;
-        grid-auto-flow: column;
-        grid-template-columns: minmax(0.5rem, 1fr) minmax(0, 1000px) minmax(0.5rem, 1fr);
-        gap: 1em;
-    }
 
-    .blog-layout > article {
-        grid-column: 2;
-    }
-</style>
 <Layout>
   <body>
     <div class="blog-layout">
       <article class="content">
         <section>
-          {allPosts.map(p => <BlogPostPreview post={p} />)}
+          {allPosts.map((p) => <BlogPostPreview post={p} />)}
         </section>
       </article>
     </div>
   </body>
 </Layout>
+
+<style>
+  .blog-layout {
+    margin-top: 24px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: minmax(0.5rem, 1fr) minmax(0, 1000px) minmax(
+        0.5rem,
+        1fr
+      );
+    gap: 1em;
+  }
+
+  .blog-layout > article {
+    grid-column: 2;
+  }
+</style>

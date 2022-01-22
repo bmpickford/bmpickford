@@ -1,20 +1,21 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import BlogPost from '../components/BlogPost.astro';
+import Layout from "./Layout.astro";
+import BlogPost from "../components/BlogPost.astro";
 
-const {content} = Astro.props;
-const {title, description, publishDate, author, heroImage, permalink, alt} = content;
+const { content } = Astro.props;
+const { title, publishDate, author, heroImage, permalink, alt } = content;
 ---
-<html lang={ content.lang || 'en' } class='theme-dark'>
-  <head>
-    <BaseHead title={title} description={description} permalink={permalink} />
-    <link rel="stylesheet" href="/prism.css" />
-  </head>
 
-  <body>
-    <BlogPost title={title} author={author} heroImage={heroImage} publishDate={publishDate} alt={alt}>
-      <slot />
-    </BlogPost>
-  </body>
-</html>
+<Layout>
+  <br />
+  <BlogPost {title} {author} {heroImage} {publishDate} {alt}>
+    <slot />
+  </BlogPost>
+</Layout>
 
+<style>
+  body {
+    overflow-y: scroll;
+    scrollbar-color: inherit red;
+  }
+</style>

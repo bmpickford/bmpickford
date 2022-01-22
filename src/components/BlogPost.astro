@@ -1,5 +1,5 @@
 ---
-import Author from './Author.astro';
+import Author from "./Author.astro";
 
 export interface Props {
   title: string;
@@ -15,7 +15,9 @@ const { title, author, publishDate, heroImage, alt } = Astro.props;
 <div class="layout">
   <article class="content">
     <header>
-      {heroImage && <img class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
+      {heroImage && (
+        <img class="hero-image" loading="lazy" src={heroImage} alt={alt} />
+      )}
       <p class="publish-date">{publishDate}</p>
       <h1 class="title">{title}</h1>
       <Author name={author} href="https://github.com/bmpickford" />
@@ -27,66 +29,62 @@ const { title, author, publishDate, heroImage, alt } = Astro.props;
 </div>
 
 <style>
-main {
-  display: grid;
-  grid-template-columns: minmax(0.1rem, 1fr) minmax(0, 1000px) minmax(0.1rem, 1fr);
-  gap: 1em;
-}
-main > div {
-  grid-column: 2;
-  /* letter-spacing: 2px; */
-  line-height: 42px;
-}
-.hero-image {
-  margin-top: 2rem;
-  margin-bottom: 4rem;
-  max-width: 1280px;
-}
-
-@media (max-width: 50em) {
-  .hero-image {
-    height: 260px;
-    margin-top: 0;
-    margin-bottom: 2rem;
+  main {
+    display: grid;
+    grid-template-columns: minmax(0.1rem, 1fr) minmax(0, 1000px) minmax(
+        0.1rem,
+        1fr
+      );
+    gap: 1em;
+    font-family: sans-serif;
+    letter-spacing: unset;
   }
-}
+  main > div {
+    grid-column: 2;
+    line-height: 42px;
+  }
+  .hero-image {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    max-width: 1280px;
+  }
 
-.content {
-  margin-bottom: 8rem;
-}
+  @media (max-width: 50em) {
+    .hero-image {
+      height: 260px;
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+  }
 
-.content :global(main > * + *) {
-  margin-top: 1rem;
-}
+  .content {
+    margin-bottom: 8rem;
+  }
 
-.content :global(h2) {
-  margin-top: 4rem;
-}
-header {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-  border-bottom: 4px solid var(--theme-divider);
-}
-header img {
-  max-width: 100vw;
-  max-height: 16vh;
-}
-.title,
-.author,
-.publish-date {
-  margin: auto;
-}
+  .content :global(main > * + *) {
+    margin-top: 1rem;
+  }
 
-.publish-date,
-.author {
-  color: var(--theme-text-lighter);
-}
+  .content :global(h2) {
+    margin-top: 4rem;
+  }
+  header {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  header img {
+    max-width: 100vw;
+    max-height: 16vh;
+  }
+  .title,
+  .author,
+  .publish-date {
+    margin: auto;
+  }
 
-.title {
-  font-size: 2.25rem;
-  font-weight: 700;
-}
+  .title {
+    font-size: 36px;
+    font-weight: 700;
+  }
 </style>

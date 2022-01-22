@@ -1,21 +1,74 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Sidebar from '../components/Sidebar.astro';
+import BaseHead from "../components/BaseHead.astro";
 
-const title = 'Ben Pickford';
-const description = 'Personal site for Benjamin Pickford';
-const permalink = 'https://benpickford.me/';
+const title = "Ben Pickford";
+const description = "Personal site for Benjamin Pickford";
+const permalink = "https://benpickford.me/";
+
+const path = Astro.request.url.pathname;
 ---
-<html lang="en" class='theme-dark'>
+
+<html lang="en">
   <head>
-    <BaseHead title={title} description={description} permalink={permalink} />
+    <BaseHead {title} {description} {permalink} />
   </head>
   <body>
     <div class="container">
-        <Sidebar />
-        <main>
-            <slot />
-        </main>
+      <h2 class="header">Benjamin Pickford</h2>
+      <div class="navigation">
+        <h4><a href="/" data-active={path === "/"}>Home</a></h4>
+        <h4>
+          <a
+            href="/blog"
+            data-active={path === "/blog" || path.includes("posts")}>Blog</a>
+        </h4>
+      </div>
+      <main>
+        <slot />
+      </main>
     </div>
   </body>
 </html>
+
+<style>
+  .header {
+    margin: 24px auto;
+    text-align: center;
+  }
+
+  .navigation {
+    display: flex;
+    width: min-content;
+    margin: auto;
+  }
+  .navigation > * {
+    margin: 12px 64px;
+    position: relative;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: border 1s ease-in;
+  }
+  a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--gold12);
+    visibility: hidden;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: 0.15s linear;
+  }
+  a:hover::before {
+    transform: scaleX(1);
+    visibility: visible;
+  }
+  a[data-active=""]::before {
+    transform: scaleX(1);
+    visibility: visible;
+  }
+</style>
