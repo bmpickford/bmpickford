@@ -1,6 +1,6 @@
 <h3 align="center">Full stack developer</h3>
 
-<div align="center">|&nbsp;&nbsp;&nbsp;&nbsp; ~4 years experience &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; Continous learning &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; Interest in climate + ecology &nbsp;&nbsp;&nbsp;&nbsp;|<div>
+<div align="center">https://benpickford.me/<div>
   
 ---
 ---
