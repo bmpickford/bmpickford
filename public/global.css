@@ -28,7 +28,6 @@ html,body {
 
 body {
  font-family: 'Roboto Mono', monospace;
- letter-spacing: 0.2em;
  background-color: var(--gold6);
 }
 
@@ -41,4 +40,16 @@ h4 {
 
 .gist {
   letter-spacing: 0;
+}
+
+body {
+  letter-spacing: 0.1rem;
+}
+
+pre {
+  letter-spacing: 0;
+  line-height: 1.25rem;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 8px 0 24px 0;
 }

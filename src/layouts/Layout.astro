@@ -20,7 +20,8 @@ const path = Astro.request.url.pathname;
         <h4>
           <a
             href="/blog"
-            data-active={path === "/blog" || path.includes("posts")}>Blog</a>
+            data-active={path && (path === "/blog" || path.includes("posts"))}>Blog</a
+          >
         </h4>
       </div>
       <main>

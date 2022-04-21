@@ -2,11 +2,7 @@
 import BlogPostPreview from "../components/BlogPostPreview.astro";
 import Layout from "../layouts/Layout.astro";
 
-let allPosts = Astro.fetchContent("./posts/*.md");
-// @ts-ignore
-allPosts = allPosts.sort(
-  (a, b) => new Date(b.publishDate) - new Date(a.publishDate)
-);
+const allPosts = await Astro.glob("./posts/*.md");
 ---
 
 <Layout>

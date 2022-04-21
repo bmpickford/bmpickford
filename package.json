@@ -10,11 +10,8 @@
   "author": "Benjamin Pickford",
   "license": "ISC",
   "devDependencies": {
-    "astro": "^0.22.17",
+    "astro": "^1.0.0-beta.14",
     "prettier": "^2.5.1",
-    "prettier-plugin-astro": "^0.0.11"
-  },
-  "snowpack": {
-    "workspaceRoot": "."
+    "prettier-plugin-astro": "^0.0.12"
   }
 }
