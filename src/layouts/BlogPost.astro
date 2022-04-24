@@ -3,10 +3,10 @@ import Layout from "./Layout.astro";
 import BlogPost from "../components/BlogPost.astro";
 
 const { content } = Astro.props;
-const { title, publishDate, author, heroImage, permalink, alt } = content;
+const { title, publishDate, author, heroImage, permalink, alt, description } = content;
 ---
 
-<Layout>
+<Layout {title} {description}>
   <br />
   <BlogPost {title} {author} {heroImage} {publishDate} {alt}>
     <slot />

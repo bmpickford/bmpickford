@@ -1,11 +1,13 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 
-const title = "Ben Pickford";
-const description = "Personal site for Benjamin Pickford";
+
 const permalink = "https://benpickford.me/";
 
 const path = Astro.request.url.pathname;
+let { title, description } = Astro.props;
+if (!title) title = "Benjamin Pickford | Software Developer blog";
+if (!description) description = "Personal site and blog for Benjamin Pickford | Software Developer";
 ---
 
 <html lang="en">
@@ -14,7 +16,7 @@ const path = Astro.request.url.pathname;
   </head>
   <body>
     <div class="container">
-      <h2 class="header">Benjamin Pickford</h2>
+      <h1 class="header">Benjamin Pickford</h1>
       <div class="navigation">
         <h4><a href="/" data-active={path === "/"}>Home</a></h4>
         <h4>

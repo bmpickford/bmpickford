@@ -1,6 +1,6 @@
 ---
-title: "Demo: Web vitals web component"
-description: "A web component that display web vitals for your site"
+title: "Web vitals web component"
+description: "A framework agnostic embeddable web component that display web vitals for your site"
 publishDate: "August 18 2021"
 author: "@bmpickford"
 alt: "Web vitals guages"
