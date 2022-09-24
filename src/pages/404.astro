@@ -1,0 +1,48 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+
+const title = "404 | Page not found";
+const description = "The page you are looking for does not exist.";
+---
+
+<html lang="en">
+    <head>
+      <BaseHead title={title} description={description} />
+    </head>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Astro JS 404 Page</title>
+	</head>
+
+	<body>
+		<main class="container">
+			<section class="content">
+				<h1>Page not found!</h1>
+				<p>
+					Path not recognised. <a
+						aria-label="Return to home page"
+						href="/"
+						>Click here to go home
+					</a>
+				</p>
+			</section>
+		</main>
+	</body>
+</html>
+<style>
+.container {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.content {
+    margin-top: 8rem;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+</style>
