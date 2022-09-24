@@ -5,6 +5,7 @@ export interface Props {
   description: string;
 }
 const { title, description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <meta charset="utf-8" />
@@ -37,5 +38,7 @@ const { title, description } = Astro.props;
   href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
   rel="stylesheet"
 />
+
+<link rel="canonical" href={canonicalURL} />
 
 <GA />
