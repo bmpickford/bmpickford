@@ -3,46 +3,33 @@ import Layout from "../layouts/Layout.astro";
 
 import linkedin from "/linkedin.svg";
 import github from "/github.svg";
+
+const socials = [
+  {
+    name: "linkedin",
+    href: "https://www.linkedin.com/in/benjamin-pickford/",
+    icon: linkedin,
+  },
+  {
+    name: "github",
+    href: "https://github.com/bmpickford/",
+    icon: github,
+  },
+];
 ---
 
 <Layout>
-  <div class="container">
-    <header>Software Engineer</header>
-    <main>
-      <a
-        href="https://www.linkedin.com/in/benjamin-pickford/"
-        target="_blank"
-        aria-label="View LinkedIn profile"
-      >
-        <img class="social" src={linkedin} alt="linkedin" />
-      </a>
-      <a
-        href="https://github.com/bmpickford/"
-        target="_blank"
-        aria-label="View Github profile"
-      >
-        <img class="social" src={github} alt="github" />
-      </a>
-    </main>
+  <div class="flex mt-16 justify-center gap-6">
+    <div class="flex justify-between mt-8 gap-16">
+      {
+        socials.map(({ href, icon, name }) => (
+          <a href={href} target="_blank" aria-label={`View ${name} profile`}>
+            <img class="h-12 w-12" src={icon} alt={name} />
+          </a>
+        ))
+      }
+    </div>
+
+   
   </div>
 </Layout>
-
-<style>
-  .container {
-    margin: 72px auto;
-    text-align: center;
-  }
-  header {
-    margin-bottom: 48px;
-  }
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-  .social {
-    height: 48px;
-    width: 48px;
-    color: black;
-    margin: auto 48px;
-  }
-</style>

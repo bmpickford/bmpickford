@@ -2,34 +2,18 @@
 import BlogPostPreview from "../components/BlogPostPreview.astro";
 import Layout from "../layouts/Layout.astro";
 
-const allPosts = await Astro.glob("./posts/*.md");
+const posts = await Astro.glob("./posts/*.md");
+const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
 ---
 
 <Layout>
   <body>
-    <div class="blog-layout">
-      <article class="content">
+    <div class="max-w-xl mx-auto mt-8">
+      <article>
         <section>
-          {allPosts.map((p) => <BlogPostPreview post={p} />)}
+          {nonDraftPosts.reverse().map((p) => <BlogPostPreview post={p} />)}
         </section>
       </article>
     </div>
   </body>
 </Layout>
-
-<style>
-  .blog-layout {
-    margin-top: 24px;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: minmax(0.5rem, 1fr) minmax(0, 1000px) minmax(
-        0.5rem,
-        1fr
-      );
-    gap: 1em;
-  }
-
-  .blog-layout > article {
-    grid-column: 2;
-  }
-</style>

@@ -1,15 +1,10 @@
 ---
+layout: "../../layouts/BlogPost.astro"
 title: "Integrating Prism into a create-react-app project"
 description: "A quick walkthough of how to best integrate the current version of Prism into a React project, bootstrapped with create-react-app"
 publishDate: "September 20 2021"
-author: "@bmpickford"
-heroImage: "/assets/blog/prism.svg"
-alt: "Prism"
-layout: "../../layouts/BlogPost.astro"
 tags: ["react", "prism"]
 ---
-
-## [Prism](https://prismjs.com/) + [create-react-app](https://github.com/facebook/create-react-app)
 
 Prism doesn't have a setup akin to much of the modern web, which can create some friction when integrating with modern tooling for ever changing frameworks. There are a few methods of installing prismjs, but this guide follows their recommended approach. Assuming a project already exists that was created with create-react-app, these steps should get you up and running with Prism quickly.
 

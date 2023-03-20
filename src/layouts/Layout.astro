@@ -6,46 +6,46 @@ const path = new URL(Astro.request.url).pathname;
 let { title, description } = Astro.props;
 if (!title) title = "Benjamin Pickford | Software Developer blog";
 if (!description) description = "Personal site and blog for Benjamin Pickford | Software Developer";
+
+const links = [
+  { href: '/', label: 'Home', isActive: path === '/' },
+  { href: '/blog/', label: 'Blog', isActive: path && (path === '/blog/' || path.includes('posts')) }
+]
 ---
 
 <html lang="en">
   <head>
     <BaseHead {title} {description} />
   </head>
-  <body>
-    <div class="container">
-      <h1 class="header">Benjamin Pickford</h1>
-      <div class="navigation">
-        <h4><a href="/" data-active={path === "/"}>Home</a></h4>
-        <h4>
-          <a
-            href="/blog/"
-            data-active={path && (path === "/blog/" || path.includes("posts"))}>Blog</a
+  <body class="bg-slate-4 pt-8 sm:px-2 md:px-4 m-auto">
+    <div>
+      <div class="text-center text-cyan-12">
+      <h1 class="text-5xl">
+        <span class="bg-cyan-6 rounded px-4 py-1 rotate-1 inline-block">Benjamin</span> Pickford
+      </h1>
+      <h2 class="text-center mt-4 text-xl text-cyan-4 bg-cyan-12 w-max px-4 py-1 m-auto">Software Engineer</h2>
+    </div>
+      <div class="m-auto w-full flex gap-24 justify-center mt-6">
+
+      {links.map(({ href, label, isActive }) => (
+        <a
+          class={`
+            text-md font-bold relative text-cyan-11
+          `}
+          href={href}
+          data-active={isActive ? 'true' : 'false'}
           >
-        </h4>
+          {label}
+          </a>
+      ))}
       </div>
-      <main>
+      <main class="container m-auto mt-4">
         <slot />
       </main>
     </div>
   </body>
 </html>
-
 <style>
-  .header {
-    margin: 24px auto;
-    text-align: center;
-  }
-
-  .navigation {
-    display: flex;
-    width: min-content;
-    margin: auto;
-  }
-  .navigation > * {
-    margin: 12px 64px;
-    position: relative;
-  }
   a {
     text-decoration: none;
     color: inherit;
@@ -58,7 +58,7 @@ if (!description) description = "Personal site and blog for Benjamin Pickford | 
     height: 2px;
     bottom: 0;
     left: 0;
-    background: var(--gold12);
+    background: hsl(192 88.0% 12.5%);
     visibility: hidden;
     border-radius: 5px;
     transform: scaleX(0);
@@ -68,7 +68,7 @@ if (!description) description = "Personal site and blog for Benjamin Pickford | 
     transform: scaleX(1);
     visibility: visible;
   }
-  a[data-active=""]::before {
+  a[data-active="true"]::before {
     transform: scaleX(1);
     visibility: visible;
   }

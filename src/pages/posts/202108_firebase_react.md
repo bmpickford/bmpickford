@@ -1,11 +1,8 @@
 ---
+layout: "../../layouts/BlogPost.astro"
 title: "Firebase Auth with React Hooks in Typescript"
 description: "Overview for a simple react project setup using Typescript, functional components, hooks and Firebase"
 publishDate: "August 12 2021"
-author: "@bmpickford"
-heroImage: "/assets/blog/firebase_react.webp"
-alt: "Firebase plus React"
-layout: "../../layouts/BlogPost.astro"
 tags: ["react", "firebase", "typescript"]
 ---
 

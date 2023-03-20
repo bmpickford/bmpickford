@@ -1,11 +1,8 @@
 ---
+layout: "../../layouts/BlogPost.astro"
 title: "Automating release notes with github actions"
 description: "Instructions on how you can completely automate release notes using the Github release functionality with Github Actions and the Github CLI"
 publishDate: "April 1 2022"
-author: "@bmpickford"
-heroImage: "/assets/blog/release.png"
-alt: "Automating release notes"
-layout: "../../layouts/BlogPost.astro"
 tags: ["github_actions", "ci"]
 ---
 

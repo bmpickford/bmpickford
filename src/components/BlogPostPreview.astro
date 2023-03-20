@@ -6,28 +6,9 @@ export interface Props {
 const { post } = Astro.props;
 ---
 
-<article class="post-preview">
-  <header>
-    <h3 class="publish-date">{post.frontmatter.publishDate}</h3>
-    <a class="highlight-anchor" href={`${post.url}/`}>
-      <h2 class="preview-title">{post.frontmatter.title}</h2>
-    </a>
-  </header>
-</article>
-
-<style>
-  .post-preview {
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .publish-date {
-    font-weight: 300;
-    font-size: 1rem;
-  }
-
-  .preview-title {
-    font-size: 1.2rem;
-    margin-top: 8px;
-  }
-</style>
+<div class="mb-12">
+  <h3 class="text-md text-slate-10">{post.frontmatter.publishDate}</h3>
+  <a class="text-blue-12" href={`${post.url}/`}>
+    <h2 class="text-xl underline">{post.frontmatter.title}</h2>
+  </a>
+</div>
